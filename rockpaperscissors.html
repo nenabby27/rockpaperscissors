@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="game()"> Let's Play!</button>
+</body>
+    <script>
+        const choices = ['ROCK', 'PAPER', 'SCISSORS']
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                let playerSelection = getPlayerChoice();
+                let computerSelection = getComputerChoice();
+                console.log(playRound(playerSelection, computerSelection));
+            }
+        }
+
+        function getComputerChoice() {
+            let choice = choices[Math.floor(Math.random() * choices.length)];
+            return choice
+        }
+
+        let playerChoices = ['ROCK', 'PAPER', 'SCISSORS']
+        function getPlayerChoice() {
+            let playerChoice = playerChoices[Math.floor(Math.random() * playerChoices.length)];
+            return playerChoice
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection === "ROCK" && computerSelection === "SCISSORS" ||
+                playerSelection === "PAPER" && computerSelection === "ROCK" ||
+                playerSelection === "SCISSORS" && computerSelection === "PAPER") {
+                return "you win!";
+            } else {
+                return "you lose!"
+            }
+        }
+
+    </script>
+</html>
